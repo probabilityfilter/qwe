@@ -1,17 +1,28 @@
-import matplotlib
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-# Data for plotting
-t = np.arange(0.0, 2.0, 0.01)
-s = 1 + np.sin(2 * np.pi * t)
+TWOPI = 2 * np.pi
 
 fig, ax = plt.subplots()
-ax.plot(t, s)
 
-ax.set(xlabel='time (s)', ylabel='voltage (mV)',
-       title='About as simple as it gets, folks')
-ax.grid()
+t = np.arange(0.0, TWOPI, 0.001)
+s = np.sin(t)
+l = plt.plot(t, s)
 
-fig.savefig("test.png")
+ax = plt.axis([0, TWOPI, -1, 1])
+
+redDot, = plt.plot([0], [np.sin(0)], "ro")
+
+
+def animate(i):
+    redDot.set_data(i, np.sin(i))
+    return (redDot,)
+
+
+# create animation using the animate() function
+myAnimation = animation.FuncAnimation(
+    fig, animate, frames=np.arange(0.0, TWOPI, 0.1), interval=10, blit=True, repeat=True
+)
+
 plt.show()
