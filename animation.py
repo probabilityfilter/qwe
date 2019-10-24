@@ -1,4 +1,4 @@
-# test
+# test1
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 # Fixing random state for reproducibility
 np.random.seed(19680801)
 
-
+# test2
 # Create new Figure and an Axes which fills it.
 fig = plt.figure(figsize=(7, 7))
 ax = fig.add_axes([0, 0, 1, 1], frameon=False)
@@ -25,6 +25,7 @@ rain_drops = np.zeros(
     ],
 )
 
+# test3
 # Initialize the raindrops in random positions and with
 # random growth rates.
 rain_drops["position"] = np.random.uniform(0, 1, (n_drops, 2))
